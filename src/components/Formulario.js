@@ -2,8 +2,9 @@ import React, {useContext} from 'react';
 import {CategoriasContext} from '../context/CategoriasContext';
 
 const Formulario = () => {
-// eslint-disable-next-line
-    const {hola} = useContext(CategoriasContext);
+
+    const {categorias} = useContext(CategoriasContext);
+    
 
 
     return (  
@@ -25,8 +26,13 @@ const Formulario = () => {
                         className="form-control"
                         name="categoria"
                     >
-                        <option value="">-- Selecciona Categoria --</option>
-
+                    <option value="">-- Selecciona Categoria --</option>
+                    {categorias.map(categoria =>(
+                        <option 
+                            key={categoria.strCategory}
+                            value={categoria.strCategory}
+                            >{categoria.strCategory}</option>
+                    ))}
 
                     </select>
                 </div>
